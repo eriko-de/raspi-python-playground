@@ -9,24 +9,22 @@ def genConnectTo(to):
         print('Connect to ' + to)
     return wrapper
 
-def genDisconnectFrom(from):
+def genDisconnectDevice(device):
     def wrapper():
-        print('Disconnect from ' + from)
+        print('Disconnect from ' + device)
     return wrapper
 
-button1 = Button(5)
-button1.when_pressed = genConnectTo("Regie1A")
-button1.when_released = genDisconnectFrom("Regie1A")
+input_mapping_A = {
+    5 : "Regie1A",
+    6 : "Regie1B",
+    13 : "Regie2A",
+    19 : "Regie2B"
+}
 
-button2 = Button(6)
-button2.when_pressed = genConnectTo("Regie2A")
-button1.when_released = genDisconnectFrom("Regie2A")
-
-# button3 = Button(13)
-# button3.when_pressed = toRegie2A
-#
-# button4 = Button(19)
-# button4.when_pressed = toRegie2B
+for pin in input_mapping_A:
+    button = Button(pin)
+    button.when_pressed = genConnectTo(input_mapping_A[pin])
+    button.when_released = genDisconnectFrom(input_mapping_A[pin])
 
 while True:
     print('waiting....')
