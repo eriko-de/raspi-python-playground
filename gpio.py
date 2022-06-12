@@ -24,7 +24,7 @@ input_mapping_A = {
 for pin in input_mapping_A:
     button = Button(pin)
     button.when_pressed = genConnectTo(input_mapping_A[pin])
-    button.when_released = genDisconnectFrom(input_mapping_A[pin])
+    button.when_released = genDisconnectDevice(input_mapping_A[pin])
 
 while True:
     print('waiting....')
