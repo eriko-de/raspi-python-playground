@@ -1,10 +1,7 @@
-# coding=utf-8
-
-from gpiozero import Button
-import datetime
 import time
 
 def genConnectTo(to):
+    print("setup calback for " + to)
     def wrapper():
         print('Connect to ' + to)
     return wrapper
@@ -21,10 +18,14 @@ input_mapping_A = {
     19 : "Regie2B"
 }
 
+buttons = []
+
 for pin in input_mapping_A:
-    button = Button(pin)
-    button.when_pressed = genConnectTo(input_mapping_A[pin])
-    button.when_released = genDisconnectDevice(input_mapping_A[pin])
+    print(pin)
+    buttons.append(Button(pin))
+    print(input_mapping_A[pin])
+    buttons[len(buttons) - 1].when_pressed = genConnectTo(input_mapping_A[pin])
+    buttons[len(buttons) - 1].when_released = genDisconnectDevice(input_mapping_A[pin])
 
 while True:
     print('waiting....')
