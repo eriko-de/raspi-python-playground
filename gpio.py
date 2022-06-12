@@ -2,7 +2,7 @@
 
 from gpiozero import Button
 import datetime
-
+import time
 
 def toRegie1A():
     print('REGIE1A')
@@ -31,6 +31,6 @@ butten4.when_pressed = toRegie2B
 
 while True:
     print('waiting....')
-    sleep(2)
+    time.sleep(10)
 
 print("Goodbye!")
