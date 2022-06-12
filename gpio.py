@@ -27,7 +27,7 @@ button3 = Button(13)
 button3.when_pressed = toRegie2A
 
 button4 = Button(19)
-butten4.when_pressed = toRegie2B
+button4.when_pressed = toRegie2B
 
 while True:
     print('waiting....')
