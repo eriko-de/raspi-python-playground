@@ -1,3 +1,4 @@
+from gpiozero import Button
 import time
 
 def genConnectTo(to):
