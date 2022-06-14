@@ -1,0 +1,7 @@
+KVM_IP: http://192.168.0.1
+KVM_USER: FILLME
+KVM_PW: FILLME
+
+# Id's of channels, needs to be strings
+DigiSpot1_id: 1337
+DigiSpot2_id: 1338
